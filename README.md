@@ -4,3 +4,4 @@ Gov Build is a site that lets a user search for properties owned/leased by the G
 
 Permit search does something similar for all confirmed residential permits in the US. 
 
+--To view the sites download Trial1 and execute the server.py file. The site is still contained to localhost. 
