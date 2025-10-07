@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Residential Construction Permits Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav style="width:100%;background:#2563eb;padding:12px 0 12px 0;box-shadow:0 2px 8px rgba(44,62,80,0.08);margin-bottom:24px;">
+        <div style="max-width:900px;margin:auto;display:flex;align-items:center;">
+            <a href="/nextproject" style="color:#fff;font-weight:600;font-size:1.2rem;text-decoration:none;padding:0 24px;">Permits Home</a>
+            <a href="/" style="color:#fff;font-weight:600;font-size:1.2rem;text-decoration:none;padding:0 24px;">All Projects</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Residential Construction Permits Results</h1>
+        <div style="overflow-x:auto; margin-top:24px;">
+            {% if result %}{{ result|safe }}{% endif %}
+        </div>
+        {% if trendline %}
+        <div style="margin-top:40px;">
+            <h2>Trendline: Total Permits by Year</h2>
+            <canvas id="trendlineChart" width="900" height="300"></canvas>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+        var years = {{ trendline.years|tojson|safe }};
+        var values = {{ trendline.values|tojson|safe }};
+        var ctx = document.getElementById('trendlineChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{
+                    label: 'Total Permits',
+                    data: values,
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37,99,235,0.1)',
+                    fill: true,
+                    tension: 0.2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { title: { display: true, text: 'Year' } },
+                    y: { title: { display: true, text: 'Total Permits' }, beginAtZero: true }
+                }
+            }
+        });
+        </script>
+        {% endif %}
+        <a href="/nextproject" class="btn" style="margin-top:32px;margin-bottom:16px;">Back</a>
+    </div>
+</body>
+</html>

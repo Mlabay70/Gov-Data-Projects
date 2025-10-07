@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to My Projects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .landing-container {
+            max-width: 900px;
+            margin: 48px auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(44, 62, 80, 0.12);
+            padding: 64px 40px;
+            text-align: center;
+        }
+        .project-link {
+            display: block;
+            margin: 32px auto;
+            padding: 24px 0;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2563eb;
+            background: #e0eafc;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+            transition: background 0.2s;
+            width: 80%;
+        }
+        .project-link:hover {
+            background: #cfdef3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav style="width:100%;background:#2563eb;padding:12px 0 12px 0;box-shadow:0 2px 8px rgba(44,62,80,0.08);margin-bottom:24px;">
+            <div style="max-width:900px;margin:auto;display:flex;align-items:center;">
+                <span style="color:#fff;font-weight:600;font-size:1.2rem;padding:0 24px;">My Projects</span>
+            </div>
+        </nav>
+    </header>
+    <div class="landing-container">
+        <h1>Welcome to My Projects</h1>
+        <p>Choose a project to explore:</p>
+        <a href="/govbuild" class="project-link">Gov Build: Federal Building Explorer</a>
+    <a href="/nextproject" class="project-link">Residential Permit Search</a>
+    </div>
+</body>
+</html>
